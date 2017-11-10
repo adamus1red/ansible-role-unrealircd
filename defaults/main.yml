@@ -1,0 +1,9 @@
+---
+
+irc_user: irc
+unreal_build_dir: /tmp/unrealircd-build
+unreal_version: '4.0.15'
+unreal_install_dir: ~/unrealircd
+unreal_remote_conf: 1
+unreal_curl_dir: /usr
+unreal_ssl_dir: ''

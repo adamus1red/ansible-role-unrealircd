@@ -1,0 +1,53 @@
+---
+
+- name: Remove Build Folder, Start Fresh
+  become: yes
+  file:
+    path: "{{ unreal_build_dir }}"
+    state: absent
+
+- name: Create Build Folder
+  become: yes
+  file:
+    path: "{{ unreal_build_dir }}"
+    state: directory
+    owner: "{{ irc_user }}"
+    group: "{{ irc_user }}"
+
+- name: Create Install Folder
+  become: yes
+  file:
+    path: "{{ unreal_install_dir }}"
+    state: directory
+    owner: "{{ irc_user }}"
+    group: "{{ irc_user }}"
+
+- name: Download UnrealIRCd ({{ unreal_version }}) and Extract
+  become: yes
+  become_user: "{{ irc_user }}"
+  unarchive: 
+    src: https://www.unrealircd.org/downloads/unrealircd-{{ unreal_version }}.tar.gz
+    dest: "{{ unreal_build_dir }}"
+    remote_src: yes
+
+- name: Transfer Config Settings
+  become: yes
+  become_user: "{{ irc_user }}"
+  template:
+    src: config_settings.j2
+    dest: "{{ unreal_build_dir }}/unrealircd-{{ unreal_version }}/config.settings"
+
+- name: Create Makefile
+  become: yes
+  become_user: "{{ irc_user }}"
+  command: ./Config -quick chdir="{{ unreal_build_dir }}/unrealircd-{{ unreal_version }}"
+
+- name: Build UnrealIRCd
+  become: yes
+  become_user: "{{ irc_user }}"
+  command: make chdir="{{ unreal_build_dir }}/unrealircd-{{ unreal_version }}"
+
+- name: Install UnrealIRCd
+  become: yes
+  become_user: "{{ irc_user }}"
+  command: make install chdir="{{ unreal_build_dir }}/unrealircd-{{ unreal_version }}"
