@@ -12,6 +12,7 @@ galaxy_info:
     - Stretch
     - Jessie
   - name: Ubuntu
+    versions:
     - Artful
     - Zesty
     - Xenial
