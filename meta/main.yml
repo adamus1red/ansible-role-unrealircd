@@ -7,7 +7,7 @@ galaxy_info:
   min_ansible_version: 2.3.0
 
   platforms:
-     - name: Ubuntu
+    - name: Ubuntu
       versions:
         - all
     - name: Debian
