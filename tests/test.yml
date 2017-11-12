@@ -1,8 +1,7 @@
 ---
 - hosts: localhost
-  remote_user: root
   roles:
-    - ansible-role-unrealircd
+    - { role: ansible-role-unrealircd, become: true }
 
   vars:
     unreal_build_dir: "$HOME/unrealircd-build"
