@@ -13,7 +13,7 @@ Role Variables
 
 |    Role Variable   |  Value |        Default        |                           Description                          |
 |:------------------:|:------:|:---------------------:|:--------------------------------------------------------------:|
-|      irc_user      | string |          irc          |                    User to install server as                   |
+|      irc_user      | string |      unrealircd       |                    User to install server as                   |
 |  unreal_build_dir  | string | /tmp/unrealircd-build |              Directory that the server is built in             |
 |   unreal_version   | string |        '4.0.15'       |                       UnrealIRCd version                       |
 | unreal_install_dir | string |      ~/unrealircd     |                        Install location                        |
