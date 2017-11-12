@@ -12,7 +12,7 @@ install:
   - pip install ansible
 
   # Add ansible.cfg to pick up roles path
-  - "{ echo '[defaults]'; echo 'roles_path = ../'; echo '[ssh_connection]'; echo 'pipelining=True'; } >> ansible.cfg"
+  - "{ echo 'allow_world_readable_tmpfiles=True'; echo '[defaults]'; echo 'roles_path = ../'; echo '[ssh_connection]'; echo 'pipelining=True'; } >> ansible.cfg"
 
 script:
   # Checks to run
