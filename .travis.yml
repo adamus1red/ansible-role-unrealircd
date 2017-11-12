@@ -1,0 +1,20 @@
+---
+language: python
+python: "2.7"
+
+before_install:
+  # Make sure everything is up to date
+  - sudo apt-get update -qq
+
+install:
+  # Install Ansible
+  - pip install ansible
+
+  # Add ansible.cfg to pick up roles path
+  - "printf '[defaults]\nroles_path = ../' > ansible.cfg"
+
+script:
+  # Checks to run
+  - "ansible-playbook -i tests/inventory tests/test.yml --syntax-check"
+  - "ansible-playbook -i tests/inventory tests/test.yml --connection=local --sudo"
+  - "if [[ -f unrealircd/unfrealircd ]]; then exit 0; else exit 1; fi"
