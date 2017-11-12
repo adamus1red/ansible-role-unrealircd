@@ -11,13 +11,13 @@ install:
   - pip install ansible
 
   # Add ansible.cfg to pick up roles path
-  - "printf '[defaults]\nroles_path = ../' > ansible.cfg"
+  - "{ echo '[defaults]'; echo 'roles_path = ../'; } >> ansible.cfg"
 
 script:
   # Checks to run
   - "ansible-playbook -i tests/inventory tests/test.yml --syntax-check"
   - "ansible-playbook -i tests/inventory tests/test.yml --connection=local --sudo"
-  - "if [[ -f unrealircd/unfrealircd ]]; then exit 0; else exit 1; fi"
+  # - "if [[ -f unrealircd/unfrealircd ]]; then exit 0; else exit 1; fi"
 
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
