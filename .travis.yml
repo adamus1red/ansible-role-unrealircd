@@ -18,3 +18,6 @@ script:
   - "ansible-playbook -i tests/inventory tests/test.yml --syntax-check"
   - "ansible-playbook -i tests/inventory tests/test.yml --connection=local --sudo"
   - "if [[ -f unrealircd/unfrealircd ]]; then exit 0; else exit 1; fi"
+
+notifications:
+  webhooks: https://galaxy.ansible.com/api/v1/notifications/
