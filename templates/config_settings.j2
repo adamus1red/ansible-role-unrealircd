@@ -16,7 +16,11 @@ NICKNAMEHISTORYLENGTH="2000"
 DEFPERM="0600"
 SSLDIR="{{ unreal_ssl_dir }}"
 REMOTEINC="{{ unreal_remote_conf }}"
+{% if unreal_remote_conf %}
 CURLDIR="{{ unreal_curl_dir }}"
+{% else %}
+CURLDIR=""
+{% endif %}
 SHOWLISTMODES="1"
 TOPICNICKISNUH=""
 SHUNNOTICES=""
