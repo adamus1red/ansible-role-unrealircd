@@ -2,4 +2,4 @@
 - hosts: localhost
   remote_user: root
   roles:
-    - whatscs.unrealircd
+    - ansible-role-unrealircd
