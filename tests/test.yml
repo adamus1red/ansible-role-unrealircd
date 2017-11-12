@@ -3,3 +3,7 @@
   remote_user: root
   roles:
     - ansible-role-unrealircd
+
+  vars:
+    unreal_build_dir: "$HOME/unrealircd-build"
+    
