@@ -1,8 +1,6 @@
 ---
-- name: install ntpdate
-  package:
-    name: {{ global_packages }}
-    state: present
+- name: install Global packages
+  package: name={{ global_packages }} state=present
     
   # Deb Tasks
 - name: DEBIAN Update apt-cache
