@@ -1,7 +1,7 @@
 ---
 debian_packages: [ 'wget', ' make', 'gcc', 'build-essential', 'openssl', 'zlib1g', 'zlib1g-dev', 'zlibc', 'libgcrypt20', 'libgcrypt20-dev', 'libssl-dev' ]
 centos_packages: [  ]
-irc_user: unrealircd
+irc_user: ircd
 irc_user_system: no
 unreal_build_dir: /tmp/unrealircd-build
 unreal_version: '5.0.2'
