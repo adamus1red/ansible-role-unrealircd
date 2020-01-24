@@ -1,5 +1,20 @@
 ---
 
+  # Deb Tasks
+- name: DEBIAN Update apt-cache
+  apt:
+    update_cache: yes
+    cache_valid_time: 3600
+  when: ansible_facts['distribution'] == "Debian"
+- name: DEBIAN Install Packages
+  apt: name={{ debian_packages }} state=latest
+  when: ansible_facts['distribution'] == "Debian"
+  # CentOS Tasks
+- name: CENTOS Install Packages
+  yum: name={{ centos_packages }} state=latest
+  when: ansible_facts['distribution'] == "CentOS"
+
+
 - name: Create User
   become: yes
   user:
