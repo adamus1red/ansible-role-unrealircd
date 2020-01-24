@@ -1,9 +1,10 @@
 ---
-
+debian_packages: [ 'wget', ' make', 'gcc', 'build-essential', 'openssl', 'zlib1g', 'zlib1g-dev', 'zlibc', 'libgcrypt20', 'libgcrypt20-dev', 'libssl-dev' ]
+centos_packages: [  ]
 irc_user: unrealircd
 irc_user_system: no
 unreal_build_dir: /tmp/unrealircd-build
-unreal_version: '4.0.15'
+unreal_version: '5.0.2'
 unreal_install_dir: "$HOME/unrealircd"
 unreal_remote_conf: 1
 unreal_curl_dir: /usr
