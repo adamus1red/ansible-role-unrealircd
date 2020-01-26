@@ -21,6 +21,7 @@ Role Variables
 |   unreal_curl_dir  | string |          /usr         |             Location where curl libs are installed             |
 |   unreal_ssl_dir   | string |                       |              SSL key directory, empty by default.              |
 |   unreal_modules   | array  |    [ 'auditorium' ]   |              Array of 3rd party modules to install             |
+
 Dependencies
 ------------
 
