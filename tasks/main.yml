@@ -79,4 +79,5 @@
 - name: Enable 3rd Party modules
   become: yes
   become_user: "{{ irc_user }}"
-  command: ./unrealircd module install third/{{ unreal_modules }} chdir="{{ unreal_install_dir }}"
+  command: ./unrealircd module install third/{{ item }} chdir="{{ unreal_install_dir }}"
+  with_items: "{{ unreal_modules }}"
