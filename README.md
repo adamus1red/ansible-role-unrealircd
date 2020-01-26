@@ -20,7 +20,7 @@ Role Variables
 | unreal_remote_conf |   int  |           1           | Whether or not to allow remote configs Accepted Values: 0 or 1 |
 |   unreal_curl_dir  | string |          /usr         |             Location where curl libs are installed             |
 |   unreal_ssl_dir   | string |                       |              SSL key directory, empty by default.              |
-
+|   unreal_modules   | array  |    [ 'auditorium' ]   |              Array of 3rd party modules to install             |
 Dependencies
 ------------
 
