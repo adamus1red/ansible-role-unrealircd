@@ -22,6 +22,7 @@
   user:
     name: "{{ irc_user }}"
     system: "{{ irc_user_system }}"
+    state: present
 
 - name: Remove Build Folder, Start Fresh
   become: yes
