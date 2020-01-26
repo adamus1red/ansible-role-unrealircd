@@ -13,9 +13,9 @@ Role Variables
 
 |    Role Variable   |  Value |        Default        |                           Description                          |
 |:------------------:|:------:|:---------------------:|:--------------------------------------------------------------:|
-|      irc_user      | string |      unrealircd       |                    User to install server as                   |
+|      irc_user      | string |         ircd          |                    User to install server as                   |
 |  unreal_build_dir  | string | /tmp/unrealircd-build |              Directory that the server is built in             |
-|   unreal_version   | string |        '4.0.15'       |                       UnrealIRCd version                       |
+|   unreal_version   | string |        '5.0.2'        |                       UnrealIRCd version                       |
 | unreal_install_dir | string |      ~/unrealircd     |                        Install location                        |
 | unreal_remote_conf |   int  |           1           | Whether or not to allow remote configs Accepted Values: 0 or 1 |
 |   unreal_curl_dir  | string |          /usr         |             Location where curl libs are installed             |
