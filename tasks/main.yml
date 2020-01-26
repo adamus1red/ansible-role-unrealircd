@@ -69,7 +69,7 @@
 - name: Build UnrealIRCd
   become: yes
   become_user: "{{ irc_user }}"
-  command: make chdir="{{ unreal_build_dir }}/unrealircd-{{ unreal_version }}"
+  command: make -j {{ ansible_processor_vcpus }} chdir="{{ unreal_build_dir }}/unrealircd-{{ unreal_version }}"
 
 - name: Install UnrealIRCd
   become: yes
