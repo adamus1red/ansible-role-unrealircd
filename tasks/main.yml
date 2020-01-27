@@ -83,13 +83,13 @@
   become: yes
   become_user: "{{ irc_user }}"
   command: make -j {{ ansible_processor_vcpus }} chdir="{{ unreal_build_dir }}/unrealircd-{{ unreal_version }}"
-  when: LOunreal_ver.split(' ')[2] == {{ unreal_version }}
+  when: LOunreal_ver.split(' ')[2] != {{ unreal_version }}
 
 - name: Install UnrealIRCd
   become: yes
   become_user: "{{ irc_user }}"
   command: make install chdir="{{ unreal_build_dir }}/unrealircd-{{ unreal_version }}"
-  when: LOunreal_ver.split(' ')[2] == {{ unreal_version }}
+  when: LOunreal_ver.stdout.split(' ')[2] != {{ unreal_version }}
 
   
 - name: Enable 3rd Party modules
