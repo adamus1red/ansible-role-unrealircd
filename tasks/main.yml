@@ -16,6 +16,15 @@
   yum: name={{ centos_packages }} state=latest
   when: ansible_facts['distribution'] == "CentOS"
 
+- name: Existing install check
+  stat:
+    path: "{{ unreal_install_dir }}/unrealircd"
+  register: LOunreal_bin
+
+- name: Get Existing Version
+  command: "{{ unreal_install_dir }}/unrealircd version"
+  register: LOunreal_ver
+
 
 - name: Create User
   become: yes
@@ -70,11 +79,14 @@
   become: yes
   become_user: "{{ irc_user }}"
   command: make -j {{ ansible_processor_vcpus }} chdir="{{ unreal_build_dir }}/unrealircd-{{ unreal_version }}"
+  when: LOunreal_ver.split(' ')[2] == {{ unreal_version }}
 
 - name: Install UnrealIRCd
   become: yes
   become_user: "{{ irc_user }}"
   command: make install chdir="{{ unreal_build_dir }}/unrealircd-{{ unreal_version }}"
+  when: LOunreal_ver.split(' ')[2] == {{ unreal_version }}
+
   
 - name: Enable 3rd Party modules
   become: yes
