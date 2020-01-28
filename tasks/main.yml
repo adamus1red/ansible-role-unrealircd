@@ -22,12 +22,14 @@
   stat:
     path: "{{ unreal_install_dir }}/unrealircd"
   register: LOunreal_bin
+  ignore_errors: yes
 
 - name: Get Existing Version
   become: yes
   become_user: "{{ irc_user }}"
   command: "{{ unreal_install_dir }}/unrealircd version"
   register: LOunreal_ver
+  ignore_errors: yes
 
 
 - name: Create User
