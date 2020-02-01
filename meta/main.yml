@@ -1,14 +1,14 @@
 ---
 galaxy_info:
-  author: WhatsCS
-  description: Downloads and installs UnrealIRCd
+  author: adamus1red
+  description: Downloads and installs UnrealIRCd 5
 
   license: BSD
 
   min_ansible_version: 2.3.0
 
   platforms:
-    - name: Ubuntu
+    - name: CentOS
       versions:
         - all
     - name: Debian
@@ -16,3 +16,6 @@ galaxy_info:
         - all
   galaxy_tags:
     - irc
+    - unrealircd
+    - atheme
+    - irc services
