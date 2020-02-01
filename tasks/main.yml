@@ -2,9 +2,9 @@
 
 # OS Tasks 
 - name: Include OS-Specific variables
-  include_vars: "{{ ansible_facts['distribution'] }}.yml"
+  include_vars: "{{ ansible_distribution  }}.yml"
 
-- include_tasks: "{{ ansible_facts['distribution'] }}.yml"
+- include_tasks: "{{ ansible_distribution  }}.yml"
 
 - name: Existing install check
   become: yes
