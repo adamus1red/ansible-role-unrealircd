@@ -1,8 +1,8 @@
 ---
-- name: {{ ansible_distribution }} Update apt-cache
+- name: "{{ ansible_distribution }} Update apt-cache"
   apt:
     update_cache: yes
     cache_valid_time: 3600
 
-- name: {{ ansible_distribution }} Install Packages
+- name: "{{ ansible_distribution }} Install Packages"
   apt: name={{ os_packages }} state=latest
