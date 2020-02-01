@@ -1,6 +1,7 @@
 ---
 galaxy_info:
   author: adamus1red
+  role_name: unrealircd
   description: Downloads and installs UnrealIRCd 5
 
   license: BSD
