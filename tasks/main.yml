@@ -6,6 +6,13 @@
 
 - include_tasks: "{{ ansible_distribution  }}.yml"
 
+- name: Create User
+  become: yes
+  user:
+    name: "{{ irc_user }}"
+    system: "{{ irc_user_system }}"
+    state: present
+
 - name: Existing install check
   become: yes
   become_user: "{{ irc_user }}"
@@ -22,12 +29,7 @@
   ignore_errors: yes
 
 
-- name: Create User
-  become: yes
-  user:
-    name: "{{ irc_user }}"
-    system: "{{ irc_user_system }}"
-    state: present
+
 
 - name: Remove Build Folder, Start Fresh
   become: yes
