@@ -1,4 +1,4 @@
-UnrealIRCd [![Build Status](https://travis-ci.org/WhatsCS/ansible-role-unrealircd.svg?branch=master)](https://travis-ci.org/WhatsCS/ansible-role-unrealircd)
+UnrealIRCd [![Build Status](https://travis-ci.com/adamus1red/ansible-role-unrealircd.svg?branch=master)](https://travis-ci.com/adamus1red/ansible-role-unrealircd)
 =========
 
 This role will download and install the most recent version of UnrealIRCd.
