@@ -1,6 +1,4 @@
 ---
-debian_packages: [ 'wget', ' make', 'gcc', 'build-essential', 'openssl', 'zlib1g', 'zlib1g-dev', 'zlibc', 'libgcrypt20', 'libgcrypt20-dev', 'libssl-dev' ]
-centos_packages: [ 'gcc', 'openssl', 'make', 'openssl-devel' ]
 irc_user: ircd
 irc_user_system: yes
 irc_user_home: /opt/{{ irc_user }}

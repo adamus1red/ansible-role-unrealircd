@@ -1,17 +1,10 @@
 ---
-  # Deb Tasks
-- name: DEBIAN Update apt-cache
-  apt:
-    update_cache: yes
-    cache_valid_time: 3600
-  when: ansible_facts['distribution'] == "Debian"
-- name: DEBIAN Install Packages
-  apt: name={{ debian_packages }} state=latest
-  when: ansible_facts['distribution'] == "Debian"
-  # CentOS Tasks
-- name: CENTOS Install Packages
-  yum: name={{ centos_packages }} state=latest
-  when: ansible_facts['distribution'] == "CentOS"
+
+# OS Tasks 
+- name: Include OS-Specific variables
+  include_vars: "{{ ansible_facts['distribution'] }}.yml"
+
+- include_tasks: "{{ ansible_facts['distribution'] }}.yml"
 
 - name: Existing install check
   become: yes

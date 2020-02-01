@@ -1,0 +1,5 @@
+---
+# CENTOS
+- name: {{ ansible_facts['distribution'] }} Install Packages
+  yum: name={{ os_packages }} state=latest
+  when: ansible_facts['distribution'] == "CentOS"
