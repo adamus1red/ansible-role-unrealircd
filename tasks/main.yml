@@ -8,6 +8,7 @@
 
 - name: Create User
   become: yes
+  ignore_errors: yes
   user:
     name: "{{ irc_user }}"
     system: "{{ irc_user_system }}"
