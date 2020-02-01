@@ -2,6 +2,7 @@
 # CENTOS
 - name: "{{ ansible_distribution }} Clean yum cache"
   command: yum clean all
+    warn: false
 
 - name: "{{ ansible_distribution }} Install Packages"
   yum: name={{ os_packages }} state=latest
