@@ -1,0 +1,32 @@
+---
+
+- name: SERVICES Download Atheme ({{ atheme_version }}) and Extract
+  become: yes
+  become_user: "{{ irc_user }}"
+  unarchive: 
+    src: https://github.com/atheme/atheme/releases/download/{{ atheme_version }}/atheme-{{ atheme_version }}.tar.xz
+    dest: "{{ unreal_build_dir }}"
+    remote_src: yes
+
+- name: "SERVICES {{ ansible_distribution }} Update apt-cache"
+  apt:
+    update_cache: yes
+    cache_valid_time: 3600
+
+- name: "SERVICES {{ ansible_distribution }} Install Packages"
+  apt: name={{ services_packages }} state=latest
+
+- name: SERVICES configure athem
+  become: yes
+  become_user: "{{ irc_user }}"
+  command: ./configure  --prefix=${HOME}/atheme --enable-contrib --with-pcre --with-cracklib --with-libidn --with-qr chdir="{{ unreal_build_dir }}/atheme-{{ atheme_version }}"
+
+- name: SERVICES Build Atheme
+  become: yes
+  become_user: "{{ irc_user }}"
+  command: make -j {{ ansible_processor_vcpus }} chdir="{{ unreal_build_dir }}/atheme-{{ atheme_version }}"
+
+- name: SERVICES Install Atheme
+  become: yes
+  become_user: "{{ irc_user }}"
+  command: make install chdir="{{ unreal_build_dir }}/atheme-{{ atheme_version }}"

@@ -59,7 +59,7 @@
     dest: "{{ unreal_build_dir }}"
     remote_src: yes
 
-- name: Transfer Config Settings
+- name: Transfer Build Config Settings
   become: yes
   become_user: "{{ irc_user }}"
   template:
@@ -87,3 +87,6 @@
   become_user: "{{ irc_user }}"
   command: ./unrealircd module install third/{{ item }} chdir="{{ unreal_install_dir }}"
   with_items: "{{ unreal_modules }}"
+
+- include_tasks: services.yml
+  when: enable_services
