@@ -16,3 +16,4 @@ unreal_modules: [ 'auditorium', 'listrestrict', 'showwebirc', 'clones', 'kickjoi
 
 # Generally override on a per-host basis
 enable_services: False
+atheme_version: v7.2.10-r2
