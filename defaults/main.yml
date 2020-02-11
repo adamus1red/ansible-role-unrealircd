@@ -7,7 +7,7 @@ irc_user_home: /opt/{{ irc_user }}
 
 # UnrealIRCd defaults
 unreal_build_dir: /tmp/unrealircd-build
-unreal_version: '5.0.2'
+unreal_version: '5.0.3.1'
 unreal_install_dir: "{{ irc_user_home }}/unrealircd"
 unreal_remote_conf: 1
 unreal_curl_dir: /usr
