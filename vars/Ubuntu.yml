@@ -12,7 +12,7 @@ os_packages:
   - 'libgcrypt20'
   - 'libgcrypt20-dev'
   - 'libssl-dev'
-services_packages: 
+services_packages:
   - 'gettext'
   - 'libcrack2-dev'
   - 'libpcre++-dev'
