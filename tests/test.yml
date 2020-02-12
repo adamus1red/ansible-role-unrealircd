@@ -14,4 +14,4 @@
     
     - name: Version is Good
       command: "/bin/true"
-      when: unrealout.stdout_lines[0] is "UnrealIRCd-"+ unreal_version + " build " + unreal_version
+      when: unrealout.stdout_lines[0] == 'UnrealIRCd-'+ unreal_version + ' build ' + unreal_version
