@@ -15,16 +15,16 @@
       when: ansible_os_family == 'Debian'
 
   roles:
-    - { role: ansible-role-unrealircd, become: true }
-  
+    - role: ansible-role-unrealircd
+      become: true
+
   tasks:
     - name: Get Binary Version
       become: yes
       become_user: "{{ irc_user }}"
       command: "{{ unreal_install_dir }}/unrealircd version"
       register: unrealout
-    
+
     - name: Version is Good
       command: "/bin/true"
       when: unrealout.stdout_lines[0] == 'UnrealIRCd-'+ unreal_version + ' build ' + unreal_version
-

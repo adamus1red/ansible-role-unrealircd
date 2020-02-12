@@ -1,6 +1,6 @@
 ---
 
-# OS Tasks 
+# OS Tasks
 - name: Include OS-Specific variables
   include_vars: "{{ ansible_distribution  }}.yml"
 
@@ -68,7 +68,7 @@
   become_user: "{{ irc_user }}"
   command: make install chdir="{{ unreal_build_dir }}/unrealircd-{{ unreal_version }}"
 
-  
+
 - name: Enable 3rd Party modules
   become: yes
   become_user: "{{ irc_user }}"

@@ -3,7 +3,7 @@
 - name: SERVICES Download Atheme ({{ atheme_version }}) and Extract
   become: yes
   become_user: "{{ irc_user }}"
-  unarchive: 
+  unarchive:
     src: https://github.com/atheme/atheme/releases/download/{{ atheme_version }}/atheme-{{ atheme_version }}.tar.xz
     dest: "{{ unreal_build_dir }}"
     remote_src: yes
