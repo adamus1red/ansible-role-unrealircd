@@ -7,23 +7,23 @@
 - include_tasks: "{{ ansible_distribution  }}.yml"
 
 - name: Create User
-  become: yes
-  ignore_errors: yes
+  become: true
+  ignore_errors: true
   user:
     name: "{{ irc_user }}"
     system: "{{ irc_user_system }}"
-    create_home: yes
+    create_home: true
     home: "{{ irc_user_home }}"
     state: present
 
 - name: Remove Build Folder, Start Fresh
-  become: yes
+  become: true
   file:
     path: "{{ unreal_build_dir }}"
     state: absent
 
 - name: Create Build Folder
-  become: yes
+  become: true
   become_user: "{{ irc_user }}"
   file:
     path: "{{ unreal_build_dir }}"
@@ -32,45 +32,45 @@
     group: "{{ irc_user }}"
 
 - name: Create Install Folder
-  become: yes
+  become: true
   become_user: "{{ irc_user }}"
   file:
     path: "{{ unreal_install_dir }}"
     state: directory
 
 - name: Download UnrealIRCd ({{ unreal_version }}) and Extract
-  become: yes
+  become: true
   become_user: "{{ irc_user }}"
   unarchive:
     src: https://www.unrealircd.org/downloads/unrealircd-{{ unreal_version }}.tar.gz
     dest: "{{ unreal_build_dir }}"
-    remote_src: yes
+    remote_src: true
 
 - name: Transfer Build Config Settings
-  become: yes
+  become: true
   become_user: "{{ irc_user }}"
   template:
     src: config_settings.j2
     dest: "{{ unreal_build_dir }}/unrealircd-{{ unreal_version }}/config.settings"
 
 - name: Create Makefile
-  become: yes
+  become: true
   become_user: "{{ irc_user }}"
   command: ./Config -quick chdir="{{ unreal_build_dir }}/unrealircd-{{ unreal_version }}"
 
 - name: Build UnrealIRCd
-  become: yes
+  become: true
   become_user: "{{ irc_user }}"
   command: make -j {{ ansible_processor_vcpus }} chdir="{{ unreal_build_dir }}/unrealircd-{{ unreal_version }}"
 
 - name: Install UnrealIRCd
-  become: yes
+  become: true
   become_user: "{{ irc_user }}"
   command: make install chdir="{{ unreal_build_dir }}/unrealircd-{{ unreal_version }}"
 
 
 - name: Enable 3rd Party modules
-  become: yes
+  become: true
   become_user: "{{ irc_user }}"
   command: ./unrealircd module install third/{{ item }} chdir="{{ unreal_install_dir }}"
   with_items: "{{ unreal_modules }}"
