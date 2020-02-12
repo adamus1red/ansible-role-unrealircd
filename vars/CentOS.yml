@@ -1,3 +1,7 @@
 ---
 
-os_packages: [ 'gcc', 'openssl', 'make', 'openssl-devel' ]
+os_packages:
+  - 'gcc'
+  - 'openssl'
+  - 'make'
+  - 'openssl-devel'

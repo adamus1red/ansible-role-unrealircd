@@ -1,4 +1,19 @@
 ---
 
-os_packages: [ 'wget', ' make', 'gcc', 'build-essential', 'openssl', 'zlib1g', 'zlib1g-dev', 'zlibc', 'libgcrypt20', 'libgcrypt20-dev', 'libssl-dev' ]
-services_packages: [ 'gettext', 'libcrack2-dev', 'libpcre++-dev', 'libidn11-dev' ]
+os_packages: 
+  - 'wget'
+  - ' make'
+  - 'gcc'
+  - 'build-essential'
+  - 'openssl'
+  - 'zlib1g'
+  - 'zlib1g-dev'
+  - 'zlibc'
+  - 'libgcrypt20'
+  - 'libgcrypt20-dev'
+  - 'libssl-dev'
+services_packages: 
+  - 'gettext'
+  - 'libcrack2-dev'
+  - 'libpcre++-dev'
+  - 'libidn11-dev'

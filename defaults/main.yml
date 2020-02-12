@@ -12,7 +12,12 @@ unreal_install_dir: "{{ irc_user_home }}/unrealircd"
 unreal_remote_conf: 1
 unreal_curl_dir: /usr
 unreal_ssl_dir: ''
-unreal_modules: [ 'auditorium', 'listrestrict', 'showwebirc', 'clones', 'kickjoindelay' ]
+unreal_modules: 
+  - 'auditorium'
+  - 'listrestrict'
+  - 'showwebirc'
+  - 'clones'
+  - 'kickjoindelay'
 
 # Generally override on a per-host basis
 enable_services: False
