@@ -6,7 +6,9 @@
     unreal_build_dir: "$HOME/unrealircd-build"
     enable_services: true
   tasks:
-    - name: Get Binary Version 
+    - name: Get Binary Version
+      become: yes
+      become_user: "{{ irc_user }}"
       command: "{{ unreal_install_dir }}/unrealircd version"
       register: unrealout
     
