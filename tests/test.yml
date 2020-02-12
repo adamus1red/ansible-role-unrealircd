@@ -8,4 +8,8 @@
   tasks:
     - name: Get Binary Version 
       command: "{{ unreal_install_dir }}/unrealircd version"
+      register: unrealout
     
+    - name: Version is Good
+      command: "/bin/true"
+      when: unrealout.stdout_lines[0] is "UnrealIRCd-{{ unreal_version }} build {{ unreal_version }}"
