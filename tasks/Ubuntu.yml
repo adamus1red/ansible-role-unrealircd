@@ -5,4 +5,4 @@
     cache_valid_time: 3600
 
 - name: "{{ ansible_distribution }} Install Packages"
-  apt: name={{ os_packages }} state=latest
+  apt: name={{ os_packages }} state=present
