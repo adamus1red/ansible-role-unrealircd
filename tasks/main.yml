@@ -16,24 +16,6 @@
     home: "{{ irc_user_home }}"
     state: present
 
-- name: Existing install check
-  become: yes
-  become_user: "{{ irc_user }}"
-  stat:
-    path: "{{ unreal_install_dir }}/unrealircd"
-  register: LOunreal_bin
-  ignore_errors: yes
-
-- name: Get Existing Version
-  become: yes
-  become_user: "{{ irc_user }}"
-  command: "{{ unreal_install_dir }}/unrealircd version"
-  register: LOunreal_ver
-  ignore_errors: yes
-
-
-
-
 - name: Remove Build Folder, Start Fresh
   become: yes
   file:
