@@ -20,7 +20,7 @@
 
   tasks:
     - name: Get Binary Version
-      become: yes
+      become: true
       become_user: "{{ irc_user }}"
       command: "{{ unreal_install_dir }}/unrealircd version"
       register: unrealout

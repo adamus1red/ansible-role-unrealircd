@@ -2,7 +2,7 @@
 
 # IRC user defaults.
 irc_user: ircd
-irc_user_system: yes
+irc_user_system: true
 irc_user_home: /opt/{{ irc_user }}
 
 # UnrealIRCd defaults
