@@ -41,7 +41,7 @@
 - name: Download UnrealIRCd ({{ unreal_version }}) and Extract
   become: yes
   become_user: "{{ irc_user }}"
-  unarchive: 
+  unarchive:
     src: https://www.unrealircd.org/downloads/unrealircd-{{ unreal_version }}.tar.gz
     dest: "{{ unreal_build_dir }}"
     remote_src: yes

@@ -14,7 +14,7 @@
     cache_valid_time: 3600
 
 - name: "SERVICES {{ ansible_distribution }} Install Packages"
-  apt: name={{ services_packages }} state=latest
+  apt: name={{ services_packages }} state=present
 
 - name: SERVICES configure athem
   become: yes
