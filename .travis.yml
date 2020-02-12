@@ -1,24 +1,39 @@
 ---
 language: python
 python: "3.8"
+services: docker
+cache: pip
+
+env:
+  global:
+    - ROLE_NAME: unrealircd
+  matrix:
+    - MOLECULE_DISTRO: centos8
+    - MOLECULE_DISTRO: centos7
+    - MOLECULE_DISTRO: centos6
+    - MOLECULE_DISTRO: ubuntu1804
+    - MOLECULE_DISTRO: ubuntu1604
+    - MOLECULE_DISTRO: debian9
+    - MOLECULE_DISTRO: debian10
+
 
 before_install:
   # Make sure everything is up to date
   - sudo apt-get update -qq
-  - sudo apt-get install -qq curl libssl-dev
+  - sudo apt-get upgrade -y -qq
+  # Use actual Ansible Galaxy role name for the project directory.
+  - cd ../
+  - mv ansible-role-$ROLE_NAME adamus1red.$ROLE_NAME
+  - cd adamus1red.$ROLE_NAME
+
 
 install:
   # Install Ansible
-  - pip3 install ansible
-
-  # Add ansible.cfg to pick up roles path
-  - "{ echo '[defaults]'; echo 'roles_path = ../'; echo 'allow_world_readable_tmpfiles=True';  echo '[ssh_connection]'; echo 'pipelining=True'; } >> ansible.cfg"
+  - pip install molecule docker
 
 script:
   # Checks to run
-  - "ansible-playbook -i tests/inventory tests/test.yml --syntax-check"
-  - "ansible-playbook -i tests/inventory tests/test.yml --connection=local --become"
-  # - "if [[ -f unrealircd/unfrealircd ]]; then exit 0; else exit 1; fi"
+  - molecule test
 
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/

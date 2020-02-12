@@ -1,0 +1,30 @@
+---
+- name: Converge
+  hosts: all
+  become: true
+
+  vars:
+    unreal_build_dir: "$HOME/unrealircd-build"
+    enable_services: true
+
+  pre_tasks:
+    - name: Update apt cache.
+      apt:
+        update_cache: true
+        cache_valid_time: 600
+      when: ansible_os_family == 'Debian'
+
+  roles:
+    - { role: ansible-role-unrealircd, become: true }
+  
+  tasks:
+    - name: Get Binary Version
+      become: yes
+      become_user: "{{ irc_user }}"
+      command: "{{ unreal_install_dir }}/unrealircd version"
+      register: unrealout
+    
+    - name: Version is Good
+      command: "/bin/true"
+      when: unrealout.stdout_lines[0] == 'UnrealIRCd-'+ unreal_version + ' build ' + unreal_version
+
