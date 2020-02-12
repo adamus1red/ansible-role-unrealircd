@@ -14,7 +14,7 @@
       when: ansible_os_family == 'Debian'
 
   roles:
-    - role: ansible-role-unrealircd
+    - role: adamus1red.unrealircd
       become: true
 
   tasks:
