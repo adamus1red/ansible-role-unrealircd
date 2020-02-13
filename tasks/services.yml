@@ -19,7 +19,11 @@
 - name: SERVICES configure athem
   become: true
   become_user: "{{ irc_user }}"
-  command: ./configure  --prefix=${HOME}/atheme --enable-contrib --with-pcre --with-cracklib --with-libidn --with-qr chdir="{{ unreal_build_dir }}/atheme-{{ atheme_version }}"
+  command:
+    argv:
+      - ./configure  --prefix=${HOME}/atheme
+      - --enable-contrib --with-pcre --with-cracklib
+      - --with-libidn --with-qr chdir="{{ unreal_build_dir }}/atheme-{{ atheme_version }}"
 
 - name: SERVICES Build Atheme
   become: true

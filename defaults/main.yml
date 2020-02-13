@@ -20,5 +20,5 @@ unreal_modules:
   - 'kickjoindelay'
 
 # Generally override on a per-host basis
-enable_services: False
+enable_services: false
 atheme_version: v7.2.10-r2
