@@ -1,3 +1,4 @@
 ---
 - name: "{{ ansible_distribution }} Install Packages"
+  become: true
   yum: name={{ os_packages }} state=present

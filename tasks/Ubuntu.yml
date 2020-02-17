@@ -1,8 +1,10 @@
 ---
 - name: "{{ ansible_distribution }} Update apt-cache"
+  become: true
   apt:
     update_cache: yes
     cache_valid_time: 3600
 
 - name: "{{ ansible_distribution }} Install Packages"
+  become: true
   apt: name={{ os_packages }} state=present
