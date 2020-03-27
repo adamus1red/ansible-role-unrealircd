@@ -1,0 +1,15 @@
+[Unit]
+Description=UnrealIRCd IRC Daemon Service
+After=network.target
+
+[Service]
+User={{ irc_user }}
+Group={{ irc_user }}
+Type=forking
+Restart=on-failure
+ExecStart={{ unreal_install_dir }}/unrealircd start
+ExecStop={{ unreal_install_dir }}/unrealircd stop
+ExecReload={{ unreal_install_dir }}/unrealircd rehash
+
+[Install]
+WantedBy=multi-user.target
