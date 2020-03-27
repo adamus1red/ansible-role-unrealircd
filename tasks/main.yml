@@ -68,10 +68,12 @@
   become_user: "{{ irc_user }}"
   command: make install chdir="{{ unreal_build_dir }}/unrealircd-{{ unreal_version }}"
 
-- name: Install ircd service
+- name: Install ircd SystemD service
   template:
     src: ircd.service.j2
     dest: "/etc/systemd/system/ircd.service"
+  when:
+    ansible_facts['service_mgr'] == "systemd"
   
 - name: Enable 3rd Party modules
   become: yes
