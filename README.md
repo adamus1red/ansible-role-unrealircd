@@ -21,6 +21,7 @@ Role Variables
 |   unreal_curl_dir  | string |          /usr         |             Location where curl libs are installed             |
 |   unreal_ssl_dir   | string |                       |              SSL key directory, empty by default.              |
 |   unreal_modules   | array  |    [ 'auditorium' ]   |              Array of 3rd party modules to install             |
+| unreal_fakelag_configurable | boolean | False       | Set the [FAKELAG_CONFIGURABLE](https://www.unrealircd.org/docs/FAQ#Why_is_UnrealIRCd_responding_slowly_.28laggy.29._It.27s_only_processing_1_line_per_second.3F.3F) parameter in config.h        |
 |   enable_services | boolean | False | Enabels Atheme services to be installed on one or more hosts |
 
 Dependencies
