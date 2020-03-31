@@ -13,6 +13,7 @@ unreal_remote_conf: 1
 unreal_curl_dir: /usr
 unreal_ssl_dir: ''
 unreal_modules: [ 'auditorium', 'listrestrict', 'showwebirc', 'clones', 'kickjoindelay' ]
+unreal_fakelag_configurable: false
 
 # Generally override on a per-host basis
 enable_services: False
