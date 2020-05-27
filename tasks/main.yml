@@ -53,6 +53,15 @@
     src: config_settings.j2
     dest: "{{ unreal_build_dir }}/unrealircd-{{ unreal_version }}/config.settings"
 
+- name: Configure Fakelag
+  become: yes
+  become_user: "{{ irc_user }}"
+  lineinfile:
+    path: "{{ unreal_build_dir }}/unrealircd-{{ unreal_version }}/include/config.h"
+    line: "#define FAKELAG_CONFIGURABLE"
+    regexp: "^(//)?#(undef|define) FAKELAG_CONFIGURABLE"
+  when: unreal_fakelag_configurable
+  
 - name: Create Makefile
   become: yes
   become_user: "{{ irc_user }}"
