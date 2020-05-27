@@ -5,6 +5,7 @@
   vars:
     unreal_build_dir: "$HOME/unrealircd-build"
     enable_services: true
+    unreal_fakelag_configurable: true
   tasks:
     - name: Get Binary Version
       become: yes
